@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PasswordManager.ListPage">
+    <StackLayout Margin="20">
+        <Editor Placeholder="Enter email"
+ Text="{Binding Description}"
+ HeightRequest="100" />
+        <Button Text="Choose password" Clicked="OnChooseButtonClicked"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Text="Save"
+ Clicked="OnSaveButtonClicked" />
+            <Button Grid.Column="1"
+ Text="Delete"
+ Clicked="OnDeleteButtonClicked"/>
+            <ListView Grid.Row="1" Grid.ColumnSpan="2" x:Name="listView"
+ Margin="20">
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Detail="{Binding Description}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </StackLayout>
+</ContentPage>
